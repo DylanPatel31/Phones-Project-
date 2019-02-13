@@ -7,6 +7,12 @@ namespace UnitTestProject
     [TestClass]
     public class tstStock
     {
+
+        Int32  PhoneID = 21;
+        string PhoneMake = "iphone"; 
+        string PhoneModel = "XS";
+        string PhoneDescription = "256GB";
+
         [TestMethod]
         public void InstanceOK()
         {   //create an instance of the class
@@ -74,6 +80,138 @@ namespace UnitTestProject
 
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create some test data 
+            clsStock AnStock = new clsStock();
+            //boolean varivale to store the result 
+            Boolean Found = false;
+            //create some test data to use the method
+            Int32 PhoneID = 1;
+            //invoke the method 
+            Found = AnStock.Find(PhoneID);
+            //test to see that the result is correct 
+            Assert.IsTrue(Found);
+        }
+            
+       
+
+        [TestMethod]
+        
+        public void TestPhoneIDFound()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 PhoneID = 12;
+            //invoke method
+            Found = AnStock.Find(PhoneID);
+            //check the phone ID
+            if (AnStock.PhoneID != 12)
+            {
+                Ok = false;
+            }
+            // test to see the result 
+            Assert.IsTrue(Ok);
+        }
+
+
+        [TestMethod]
+
+        public void TestPhoneMakeFound()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 PhoneID = 12;
+            //invoke method
+            Found = AnStock.Find(PhoneID);
+            //check the property
+            if (AnStock.PhoneMake != "Iphone")
+            {
+                Ok = false;
+            }
+            // test to see the result 
+            Assert.IsTrue(Ok);
+        }
+
+
+        [TestMethod]
+
+        public void TestPhoneModelFound()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 PhoneID = 12;
+            //invoke method
+            Found = AnStock.Find(PhoneID);
+            //check the property
+            if (AnStock.PhoneModel != "XS")
+            {
+                Ok = false;
+            }
+            // test to see the result 
+            Assert.IsTrue(Ok);
+        }
+
+
+        [TestMethod]
+
+        public void TestPhoneDescriptionFound()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 PhoneID = 12;
+            //invoke method
+            Found = AnStock.Find(PhoneID);
+            //check the property
+            if (AnStock.PhoneDescription != "256GB")
+            {
+                Ok = false;
+            }
+            // test to see the result 
+            Assert.IsTrue(Ok);
+        }
+
+        
+        [TestMethod]
+        public void ValidMethodOk()
+        {
+            //create an instance of the class 
+            clsStock AnStock = new clsStock();
+            //string to store the variable
+            string Error = "";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+
+
+
+
 
 
 
@@ -84,3 +222,4 @@ namespace UnitTestProject
 
     }
 }
+

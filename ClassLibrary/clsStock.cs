@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System;
+
+namespace ClassLibrary
 {
     public class clsStock
     {
@@ -74,6 +76,22 @@
             }
                 
                 
+        }
+
+        public bool Find(int phoneID)
+        {
+
+            //private data member for phoneID
+            PhoneID = 12;
+            PhoneMake = "Iphone";
+            PhoneModel = "XS";
+            PhoneDescription = "256GB";
+            return true;
+        }
+
+        public string Valid(int phoneID, string phoneMake, string phoneModel, string phoneDescription)
+        {
+            return "";
         }
     }
 }
