@@ -208,15 +208,73 @@ namespace UnitTestProject
         }
 
 
+        [TestMethod]
+        public void PhoneIDMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to pass to the method 
+            string PhoneID = "s";
+            //invoke the method 
+            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(OK);
+
+        }
+
+
+        [TestMethod]
+        public void PhoneIDMinLessOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneID = "";
+            //invoke the method 
+            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(OK);
+
+        }
 
 
 
+        [TestMethod]
+        public void PhoneIDMinPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneID = "ss";
+            //invoke the method 
+            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(OK);
 
+        }
 
+        [TestMethod]
+        public void PhoneIDMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneID = "";
+            PhoneID = PhoneID.PadRight(100, 's');
+            //invoke the method 
+            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(OK);
 
-
-
-
+        }
 
 
 

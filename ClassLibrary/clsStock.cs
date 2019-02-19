@@ -91,7 +91,21 @@ namespace ClassLibrary
 
         public string Valid(int phoneID, string phoneMake, string phoneModel, string phoneDescription)
         {
-            return "";
+            //create string variable to store the error 
+            string Error = "";
+
+            if(phoneID == 0)
+            {
+                Error = Error + "PhoneId can not be left blank : ";
+            }
+
+            if(phoneID >100)
+            {
+                Error = Error + "PhoneID must be less than 100 : ";
+            }
+
+            return Error;
+
         }
     }
 }
