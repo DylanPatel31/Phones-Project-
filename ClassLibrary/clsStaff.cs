@@ -13,7 +13,7 @@ namespace ClassLibrary
         //private data member for the LastName property
         private string mLastName;
         ////private data member for the DateOfBirth property
-        private string mDateOfBirth;
+        private DateTime mDateOfBirth;
         //private data member for the Address1 property
         private string mAddress1;
         //private data member for the Address2 property
@@ -80,7 +80,7 @@ namespace ClassLibrary
                 mCity = value;
             }
         }
-        public string DateOfBirth
+        public DateTime DateOfBirth
         {
             get
             {
@@ -156,7 +156,7 @@ namespace ClassLibrary
             mTitle = "Mr";
             mFirstName = "John";
             mLastName = "Taylor";
-            mDateOfBirth = "01/01/98";
+            mDateOfBirth = Convert.ToDateTime("01/01/1998");
             mAddress1 = "18 Some Street";
             mAddress2 = "36 Some Street";
             mCity = "Leicester";
@@ -168,7 +168,22 @@ namespace ClassLibrary
 
         public string Valid(string title, string firstName, string lastName, string dateOfBirth, string address1, string address2, string city, string postCode)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+            //if the Title is blank
+            if (title.Length == 0)
+            {
+                //record the error
+                Error = Error + "The title may not be blank";
+            }
+            //if the titel is greater than 4 characters
+            if(title.Length > 4)
+            {
+                //record the error
+                Error = Error + "The title must ne less than 4 characters : ";
+            }
+            //return any error message
+            return Error;
         }
     }
 }
