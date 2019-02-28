@@ -213,14 +213,14 @@ namespace UnitTestProject
         {
             //create an instance of the class
             clsStock AnStock = new clsStock();
-            //boolean variable to store the result of the validation 
-            Boolean Ok = false;
+            //string to store the variable
+            string Error = "";
             //create some test data to pass to the method 
-            string PhoneID = "s";
+            Int32 PhoneID = 1;
             //invoke the method 
-            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 
-            Assert.AreEqual(OK);
+            Assert.AreEqual(Error,"");
 
         }
 
@@ -233,11 +233,11 @@ namespace UnitTestProject
             //string variable to store error message 
             string Error = "";
             //create some test data to pass to the method 
-            string PhoneID = "";
+            Int32 PhoneID = -1;
             //invoke the method 
-            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 
-            Assert.AreNotEqual(OK);
+            Assert.AreNotEqual(Error,"");
 
         }
 
@@ -251,11 +251,11 @@ namespace UnitTestProject
             //string variable to store error message 
             string Error = "";
             //create some test data to pass to the method 
-            string PhoneID = "ss";
+            Int32 PhoneID = 2;
             //invoke the method 
-            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 
-            Assert.AreEqual(OK);
+            Assert.AreEqual(Error,"");
 
         }
 
@@ -267,14 +267,48 @@ namespace UnitTestProject
             //string variable to store error message 
             string Error = "";
             //create some test data to pass to the method 
-            string PhoneID = "";
-            PhoneID = PhoneID.PadRight(100, 's');
+            Int32 PhoneID = 100;
             //invoke the method 
-            Ok = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 
-            Assert.AreEqual(OK);
+            Assert.AreEqual(Error,"");
 
         }
+
+
+
+        [TestMethod]
+        public void PhoneIDMaxLessOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            Int32 PhoneID = 99;
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneIDMid()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            Int32 PhoneID = 50;
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
 
 
 
