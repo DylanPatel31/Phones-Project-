@@ -311,6 +311,444 @@ namespace UnitTestProject
 
 
 
+        [TestMethod]
+        public void PhoneIDExtremeMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            Int32 PhoneID = 500;
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+
+        [TestMethod]
+        public void PhoneMakeExtremeMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+
+
+
+        [TestMethod]
+        public void PhoneMakeMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "s";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeMinPulsOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "ss";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeExtremeMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            PhoneMake = PhoneMake.PadRight(500, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            PhoneMake = PhoneMake.PadRight(100, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeMaxPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            PhoneMake = PhoneMake.PadRight(101, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeMid()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            PhoneMake = PhoneMake.PadRight(50, '2');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneMakeMaxMinusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneMake = "";
+            PhoneMake = PhoneMake.PadRight(99, '2');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void PhoneModelExtremeMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneModelMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "s";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneModelMinPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "ss";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneModelExtremeMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            PhoneModel = PhoneModel.PadRight(1000,'s');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneModelMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            PhoneModel = PhoneModel.PadRight(1000, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void PhoneModelMaxPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            PhoneModel = PhoneModel.PadRight(101, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+
+
+
+        [TestMethod]
+        public void PhoneModelLessOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            PhoneModel = PhoneModel.PadRight(99, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneModelMid()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneModel = "";
+            PhoneModel = PhoneModel.PadRight(50, 's');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void PhoneDescriptionExtremeMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void PhoneDescriptionMin()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "d";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneDescriptionMinPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "dx";
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneDescriptionExtremeMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "";
+            PhoneDescription = PhoneDescription.PadRight(1100, 'w');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void PhoneDescriptionMax()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "";
+            PhoneDescription = PhoneDescription.PadRight(1000, 'w');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void PhoneDescriptionMaxPlusOne()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "";
+            PhoneDescription = PhoneDescription.PadRight(1001, 'w');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+
+        [TestMethod]
+        public void PhoneDescriptionMid()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //string variable to store error message 
+            string Error = "";
+            //create some test data to pass to the method 
+            string PhoneDescription = "";
+            PhoneDescription = PhoneDescription.PadRight(500, 'w');
+            //invoke the method 
+            Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

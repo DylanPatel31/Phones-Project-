@@ -11,7 +11,7 @@ namespace ClassLibrary
         public bool Find(int contractNo)
         {
             //set the private data member to the test data value
-            mContractNo = 21;
+            //mContractNo = 21;
             //always return true
             return true;
         }
