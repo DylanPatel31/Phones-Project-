@@ -104,6 +104,43 @@ namespace ClassLibrary
                 Error = Error + "PhoneID must be less than 100 : ";
             }
 
+
+
+            if(phoneMake.Length==0)
+            {
+                Error = Error + "Phone make cannot be empty :";
+            }
+
+            if(phoneMake.Length>100)
+            {
+                Error = Error + "phone make cannot be bigger than 100: ";
+            }
+
+            //Phone Model
+            if(PhoneModel.Length==0)
+            {
+                Error = Error + "phone model cannot be empty:";
+            }
+            if(phoneModel.Length>100)
+            {
+                Error = Error + "phone model cannot be bigger than 100:";
+            }
+
+
+
+
+            if(phoneDescription.Length==0)
+            {
+                Error = Error + "Phone description cannot be empty:";
+            }
+            
+            if(phoneDescription.Length>1000)
+            {
+                Error = Error + "Phone description cannot be bigger than 100:";
+            }
+
+
+
             return Error;
 
         }
