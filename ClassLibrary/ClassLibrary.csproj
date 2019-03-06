@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="clsContract.cs" />
     <Compile Include="clsCustomer.cs" />
+    <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsStaff.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsStockCollection.cs" />
