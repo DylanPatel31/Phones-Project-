@@ -5,6 +5,24 @@ namespace ClassLibrary
 {
     public class clsStockCollection
     {
-        public List<clsStock> StockList { get; set; }
+        private List<clsStock> mStockList;
+
+        public List<clsStock> StockList
+        {
+
+            get
+            {
+                return mStockList;
+            }
+
+
+            set
+            {
+                //
+            }
+                
+         }
+        public int Count { get; set; }
+        public clsStock ThisStock { get; set; }
     }
 }

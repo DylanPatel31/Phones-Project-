@@ -80,6 +80,23 @@ namespace UnitTestProject
 
         }
 
+
+        [TestMethod]
+
+        public void ArchiveMethodOk()
+        {
+            //create an instance of the class
+            clsStock AnStock = new clsStock();
+            //create some test data
+
+
+        }
+        
+
+
+
+
+
         [TestMethod]
         public void FindMethodOK()
         {
