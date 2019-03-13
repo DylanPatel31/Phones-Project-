@@ -52,6 +52,7 @@
     <Compile Include="tstContract.cs" />
     <Compile Include="tstCustomer.cs" />
     <Compile Include="tstStaff.cs" />
+    <Compile Include="tstStaffCollection.cs" />
     <Compile Include="tstStock.cs" />
     <Compile Include="tstStockCollection.cs" />
   </ItemGroup>

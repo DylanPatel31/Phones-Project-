@@ -268,16 +268,16 @@ namespace ClassLibrary
             {
                 //copy the dateOfBirth value t othe DateTemp variable
                 DateTemp = Convert.ToDateTime(dateOfBirth);
-                if (DateTemp < DateTime.Now.AddDays(-1))
+                if (DateTemp > DateTime.Now.AddYears(-16))
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "too young : ";
                 }
                 //check to se if th date is greater than today's date
-                if ( DateTemp > DateTime.Now.AddDays(+1))
+                if ( DateTemp < DateTime.Now.AddYears(-100))
                 {
                     //record the error 
-                    Error = Error + "The Date cannot be in the future : ";
+                    Error = Error + "Too old : ";
                 }
             }
             catch
