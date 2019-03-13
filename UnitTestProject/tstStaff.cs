@@ -12,7 +12,7 @@ namespace UnitTestProject
         string Title = "Mr";
         string FirstName = "John";
         string LastName = "Taylor";
-        string DateOfBirth = DateTime.Now.Date.ToString();
+        string DateOfBirth = DateTime.Now.Date.AddYears(-16).ToString();
         string Address1 = "18 Some Street";
         string Address2 = "36 Some Street";
         string City = "Leicester";
@@ -749,17 +749,180 @@ namespace UnitTestProject
             //create an instance of the class we want to create
             clsStaff AStaff = new clsStaff();
             //string variable to store any error message
+
+            //string ErrMsg;
+            //create a variable to store the test date data
+            String Error = "";
+            String TestDate;
+            //set the data to today minus - 16 years date
+            TestDate = DateTime.Now.Date.AddYears(1000).ToString();
+            //change the date to whatever the date is less 1000 years
+            //TestDate = TestDate.AddYears(-1000);
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreNotEqual(Error,"");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
             String Error = "";
             //create a variable to store the test date data
-            DateTime TestDate;
+            String TestDate;
             //set the data to todays date
-            TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 1000 years
-            TestDate = TestDate.AddYears(-1000);
+            TestDate = DateTime.Now.Date.AddYears(-16).AddDays(1).ToString();
             //convert the date  variable to a string variable 
-            string DateofBirth = TestDate.ToString();
+            string DateOfBirth = TestDate.ToString();
             //invoke the method
-            Error = AStaff.Valid(Title, FirstName, LastName, DateOfBirth, Address1, Address2, City, PostCode);
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-16).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-16).AddDays(-1).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-100).AddDays(1).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-100).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-100).AddDays(-1).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-58).ToString();
+            //convert the date  variable to a string variable 
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            String TestDate;
+            //set the data to todays date
+            TestDate = DateTime.Now.Date.AddYears(-1000).ToString();
+            //convert the date  variable to a string variable 
+            //string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+
+        public void DateOfBirthInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            String TestDate;
+            //set the DateOfBirth to a non data value
+            TestDate = "this is not a date";
+            //invoke the mehtod
+            Error = AStaff.Valid(Title, FirstName, LastName, TestDate, Address1, Address2, City, PostCode);
+            //test to see if the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
