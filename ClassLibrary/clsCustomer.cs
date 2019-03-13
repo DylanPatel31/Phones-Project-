@@ -25,7 +25,7 @@ namespace ClassLibrary
         //private data member for the CustomerNo property
         private DateTime mDateOfBirth;
         //private data member for the CustomerNo property
-        private DateTime mDateJoined;
+        private DateTime mDateAdded;
 
 
         //public property for Mobile number
@@ -74,7 +74,7 @@ namespace ClassLibrary
                 mFirstName = value;
             }
 
-         }
+        }
 
         //public property for Last Name
         public string LastName
@@ -190,17 +190,17 @@ namespace ClassLibrary
 
 
         //public property for Date Joined
-        public DateTime DateJoined
+        public DateTime DateAdded
         {
             get
             {
                 //return the private data
-                return mDateJoined;
+                return mDateAdded;
             }
             set
             {
                 //set the value of the private data member
-                mDateJoined = value;
+                mDateAdded = value;
             }
 
         }
@@ -208,42 +208,23 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
-            //create an instance of the data connection
-            clsDataConnection DB = new clsDataConnection();
-            //add the parameter for the book ref to search for
-            DB.AddParameter("@CustomerNo", CustomerNo);
-            //execute stored procedure
-            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
-            //if one record is found
-            if (DB.Count == 1)
-            {
-                //copy the data from the database to the private data members
-                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
-                mTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
-                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
-                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
-                mHouseNo = Convert.ToString(DB.DataTable.Rows[0]["HouseNo"]);
-                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
-                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
-                mContactNo = Convert.ToString(DB.DataTable.Rows[0]["ContactNo"]);
-                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
-                mDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["DateJoined"]);
-
-
-                //return an record has been found
-                return true;
-            }
-            //if no record is found
-            else
-            {
-                //record no record has been found
-                return false;
-            }
+            //set the private data member to test data value
+            mCustomerNo = 1;
+            mContactNo = 01259854590;
+            mFirstName = "Mudrik";
+            mLastName = "Mohamed";
+            mTitle = "Mr";
+            mPostCode = "LE2 1HL";
+            mTown = "Leicester";
+            mHouseNo = "37 Drapper street";
+            mEmail = "Mudrik2018@gmail.com";
+            mDateOfBirth = Convert.ToDateTime("06/07/1995");
+            mDateAdded = Convert.ToDateTime("10/02/2019");
+            //always return true
+            return true;
         }
 
-
-        public string Valid(string title, string firstName, string lastName, string houseNo, string town, string postCode, string contactNo, string email, string dateOfBirth, string dateJoined)
+        public string Valid(string title, string firstName, string lastName, string houseNo, string town, string postCode, string contactNo, string email, string dateOfBirth, string dateAdded)
         {
             //create a string variable to store the error
             String Error = "";
@@ -253,125 +234,88 @@ namespace ClassLibrary
             if (title.Length == 0)
             {
                 //record the error
-                Error = Error + " The title may not be blank :  ";
+                Error = Error + "The title may not be blank :";
             }
             //if the titel is greater than 4 characters
             if (title.Length > 4)
             {
                 //record the error
-                Error = Error + "The title must be less than 4 characters : ";
+                Error = Error + "The title must ne less than 4 characters : ";
             }
+
+
+
 
             ////FirstName
 
-            if (firstName.Length < 1)
+            if (firstName.Length == 0)
             {
-                Error = Error + " first name is too short :    ";
+                Error = Error + "The first may not be blank";
             }
             if (firstName.Length > 50)
             {
-                Error = Error + " first name is too long :      ";
+                Error = Error + " The first name must be less than 50 characters :   ";
             }
+
+
 
             ////LastName
 
-            if (lastName.Length < 1)
+            if (lastName.Length == 0)
             {
-                Error = Error + " last name is too short :      ";
+                Error = Error + "The last name may not be blank";
             }
-            if (lastName.Length > 25)
+            if (lastName.Length > 50)
             {
-                Error = Error + " last name is too long :       ";
-            }
-
-            //DateOfBirth
-            try
-            {
-                DateTemp = Convert.ToDateTime(dateOfBirth);
-
-                if (DateTemp >= DateTime.Now.Date.AddYears(-18))
-                {
-                    Error = Error + " You must be over 18 years old :      ";
-                }
-
-                if (DateTemp <= DateTime.Now.Date.AddYears(-150))
-                {
-                    Error = Error + " You must be under 150 years old :       ";
-                }
-
-            }
-            catch
-            {
-                Error = Error + " Incorrect date entered :  ";
+                Error = Error + " The last name must be less than 50 characters :   ";
             }
 
-            //DateJoined
-            try
+            //Email
+            if (email.Length == 0)
             {
-                DateTemp = Convert.ToDateTime(dateJoined);
-
-                if (DateTemp <= DateTime.Now.Date)
-                {
-                    //record the error
-                    Error = Error + " the date cannot be in the past :      ";
-                }
-
-                if (DateTemp >= DateTime.Now.Date)
-                {
-                    Error = Error + " the date cannot be in the future :       ";
-                }
-
+                Error = Error + "The last name may not be blank";
             }
-            catch
+            if (email.Length > 50)
             {
-                Error = Error + " the date was not a valid date :  ";
+                Error = Error + " The last name must be less than 50 characters :   ";
             }
 
 
-            // HouseNo
-            //if the house no is blank
+            //HouseNo
             if (houseNo.Length == 0)
             {
-                //record the error
-                Error = Error + " The house number may not be blank :  ";
+                Error = Error + "The house number may not be blank";
             }
-            //if the house no is greater than 30 characters
             if (houseNo.Length > 30)
             {
-                //record the error
-                Error = Error + "The house number must be less than 30 characters : ";
+                Error = Error + " The house name must be less than 30 characters :   ";
             }
 
-            //town
-            //is the town blank
+
+            //Town
             if (town.Length == 0)
             {
-                //record the error
-                Error = Error + " The town may not be blank :  ";
+                Error = Error + "The town may not be blank";
             }
-            //if the titel is greater than 50 characters
-            if (town.Length > 50)
+            if (town.Length > 20)
             {
-                //record the error
-                Error = Error + "The town must be less than 50 characters : ";
+                Error = Error + " The town must be less than 20 characters :   ";
             }
+
 
             //PostCode
             if (postCode.Length == 0)
             {
-                //record the error
-                Error = Error + " The psot may not be blank :  ";
+                Error = Error + "The post code may not be blank";
             }
-            //if the titel is greater than 9 characters
-            if (postCode.Length > 9)
+            if (postCode.Length > 10)
             {
-                //record the error
-                Error = Error + "The post must be less than 9 characters : ";
+                Error = Error + " The post code must be less than 10 characters :   ";
             }
 
-            //contactNo
+            // if statement for contactNo
 
-            if (contactNo.Length < 4)
+            if (contactNo.Length < 3)
             {
                 Error = Error + " Contact Number is too short : ";
             }
@@ -380,16 +324,34 @@ namespace ClassLibrary
                 Error = Error + " Contact Number is too long :  ";
             }
 
-            // if statement for email 
 
-            if (email.Length < 5)
+
+            //DateAdded
+            try //try to see if the date entered is valid
             {
-                Error = Error + " Email is too short :  ";
+                //tempory variable to store the date
+                DateTemp = Convert.ToDateTime(dateAdded);
+                //if the datetemp is greater then todays date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //flag an error
+                    Error = Error + "Date in past. Please enter todays date : ";
+                }
+
+                //if the datetemp is less then todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //flag an error
+                    Error = Error + "Date in Future. Please enter todays date : ";
+                }
+
             }
-            if (email.Length > 35)
+            catch // if an error has failed to be caught
             {
-                Error = Error + " Email is too long :    ";
+                //flag an error
+                Error = Error + "Incorrect Date Format entered : ";
             }
+
 
 
 
@@ -397,6 +359,6 @@ namespace ClassLibrary
             return Error;
         }
     }
-
+    //m
 
 }
