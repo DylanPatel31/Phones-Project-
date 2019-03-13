@@ -170,6 +170,9 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
             //if the Title is blank
             if (title.Length == 0)
             {
@@ -177,11 +180,113 @@ namespace ClassLibrary
                 Error = Error + "The title may not be blank";
             }
             //if the titel is greater than 4 characters
-            if(title.Length > 4)
+            if (title.Length > 4)
             {
                 //record the error
-                Error = Error + "The title must ne less than 4 characters : ";
+                Error = Error + "The title must be less than 4 characters : ";
             }
+
+            //is the post code blank
+            if (postCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Post code may not be blank";
+            }
+            //if post code is too long
+            if (postCode.Length > 7)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 7 characters : ";
+            }
+
+            //is the city blank
+            if (city.Length == 0)
+            {
+                //record the error
+                Error = Error + "The City may not be blank";
+            }
+            //if city too long
+            if (city.Length > 50)
+            {
+                //record the error
+                Error = Error + "The City must be less than 50 characters : ";
+            }
+
+            //is the  address1 blank
+            if (address1.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Address may not be blank";
+            }
+            //if address1 too long
+            if (address1.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Address must be less than 50 characters : ";
+            }
+
+            //is the address2 blank
+            if (address2.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Address 2 may not be blank";
+            }
+            //if address2 too long
+            if (address2.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Address 2 must be less than 50 characters : ";
+            }
+
+            //is the last name blank
+            if (lastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Last Name may not be blank";
+            }
+            //if last name too long
+            if (lastName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Last Name must be less than 50 characters : ";
+            }
+
+            //is the first name blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The First Name must not be blank";
+            }
+
+            //if first name is too long
+            if (firstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The First Name must be less that 50 characters : ";
+            }
+            try
+            {
+                //copy the dateOfBirth value t othe DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+                if (DateTemp < DateTime.Now.AddDays(-1))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to se if th date is greater than today's date
+                if ( DateTemp > DateTime.Now.AddDays(+1))
+                {
+                    //record the error 
+                    Error = Error + "The Date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date of birth : ";
+            }
+
+
             //return any error message
             return Error;
         }
