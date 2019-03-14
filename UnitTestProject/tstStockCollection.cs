@@ -47,23 +47,6 @@ namespace UnitTestProject
 
         [TestMethod]
 
-        public void CountyPropertyOk()
-
-        {
-            //create an instance of the class we want to create 
-            clsStockCollection AllStock = new clsStockCollection();
-            //create some test data to assign to the property 
-            Int32 SomeCount = 0;
-            //assign the data to the property
-            AllStock.Count = SomeCount;
-            //test to see theat two values are the same 
-            Assert.AreEqual(AllStock.Count, SomeCount);
-
-        }
-
-
-        [TestMethod]
-
         public void ThisStockPropertyOk()
 
         {
@@ -83,8 +66,33 @@ namespace UnitTestProject
 
         }
 
+        [TestMethod]
 
-        //[TestMethod]
+        public void ListAndCount()
+        {
+
+            //create an instance of the class we want to create 
+            clsStockCollection AllStock = new clsStockCollection();
+            //create some test data to assign property, need to be a list in this case
+            List<clsStock> TestList = new List<clsStock>();
+            //add an item to the list, create the item of test data 
+            clsStock TestItem = new clsStock();
+            //set the properties 
+            TestItem.PhoneID = 1;
+            TestItem.PhoneMake = "Iphone";
+            TestItem.PhoneModel = "XS";
+            TestItem.PhoneDescription = "256GB";
+            //add the item to the test list 
+            TestList.Add(TestItem);
+            //assign the data to the property 
+            AllStock.StockList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.Count, TestList.Count);
+
+
+
+        }
+        
         
 
 
