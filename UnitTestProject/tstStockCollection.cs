@@ -68,7 +68,7 @@ namespace UnitTestProject
 
         [TestMethod]
 
-        public void ListAndCount()
+        public void ListAndCountOK()
         {
 
             //create an instance of the class we want to create 
@@ -88,12 +88,40 @@ namespace UnitTestProject
             AllStock.StockList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.Count, TestList.Count);
-
-
-
         }
         
-        
+
+       [TestMethod]
+
+       public void AddMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsStockCollection AllStock = new clsStockCollection();
+            //create the item of test data
+            clsStock TestItem = new clsStock();
+            //var to store the primary key 
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.PhoneID = 1;
+            TestItem.PhoneMake = "Iphone";
+            TestItem.PhoneModel = "XS";
+            TestItem.PhoneDescription = "256GB";
+            //set thisStock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.PhoneID = PrimaryKey;
+            //find the record 
+            AllStock.ThisStock.Find(PrimaryKey);
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+
+        }
+
+
+
+
 
 
     }
