@@ -205,48 +205,65 @@ namespace ClassLibrary
 
         }
 
+        
 
         public bool Find(int CustomerNo)
         {
-            //set the private data member to test data value
-            mCustomerNo = 1;
-            mContactNo = 01259854590;
-            mFirstName = "Mudrik";
-            mLastName = "Mohamed";
-            mTitle = "Mr";
-            mPostCode = "LE2 1HL";
-            mTown = "Leicester";
-            mHouseNo = "37 Drapper street";
-            mEmail = "Mudrik2018@gmail.com";
-            mDateOfBirth = Convert.ToDateTime("06/07/1995");
-            mDateAdded = Convert.ToDateTime("10/02/2019");
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the book ref to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            //execute stored procedure
+            DB.Execute("sproc_tblCustomers_FilterByCustomerNo");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mHouseNo = Convert.ToString(DB.DataTable.Rows[0]["HouseNo"]);
+                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mContactNo = Convert.ToInt32(DB.DataTable.Rows[0]["ContactNo"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+
+
+                //return an record has been found
+                return true;
+            }
+            //if no record is found
+            else
+            {
+                //record no record has been found
+                return false;
+            }
         }
+
 
         public string Valid(string title, string firstName, string lastName, string houseNo, string town, string postCode, string contactNo, string email, string dateOfBirth, string dateAdded)
         {
-            //create a string variable to store the error
-            String Error = "";
-            //create a temporory variale to store the values
+            //temp variable to store start date
             DateTime DateTemp;
-            //if the Title is blank
+            string Error = "";
+
+
+            ////title
+
             if (title.Length == 0)
             {
-                //record the error
-                Error = Error + "The title may not be blank :";
+                Error = Error + "The title may not be blank";
             }
-            //if the titel is greater than 4 characters
-            if (title.Length > 4)
+            if (title.Length > 10)
             {
-                //record the error
-                Error = Error + "The title must ne less than 4 characters : ";
+                Error = Error + " The title  must be less than 50 characters :   ";
             }
 
 
-           
-
-        ////FirstName
+            ////FirstName
 
             if (firstName.Length== 0)
             {
@@ -286,7 +303,7 @@ namespace ClassLibrary
             {
                 Error = Error + "The house number may not be blank";
             }
-            if (houseNo.Length > 30)
+            if (houseNo.Length > 50)
             {
                 Error = Error + " The house name must be less than 30 characters :   ";
             }
@@ -297,7 +314,7 @@ namespace ClassLibrary
             {
                 Error = Error + "The town may not be blank";
             }
-            if (town.Length > 20)
+            if (town.Length > 50)
             {
                 Error = Error + " The town must be less than 20 characters :   ";
             }
@@ -308,7 +325,7 @@ namespace ClassLibrary
             {
                 Error = Error + "The post code may not be blank";
             }
-            if (postCode.Length > 10)
+            if (postCode.Length > 50)
             {
                 Error = Error + " The post code must be less than 10 characters :   ";
             }
@@ -352,9 +369,25 @@ namespace ClassLibrary
                 Error = Error + "Incorrect Date Format entered : ";
             }
 
+            //DateAdded
+            try //try to see if the date entered is valid
+            {
+                //tempory variable to store the date
+                DateTemp = Convert.ToDateTime(dateOfBirth);
            
+                //if the datetemp is less then todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //flag an error
+                    Error = Error + "Date in Future. Please enter todays date : ";
+                }
 
-
+            }
+            catch // if an error has failed to be caught
+            {
+                //flag an error
+                Error = Error + "Incorrect Date Format entered : ";
+            }
             //return any error message
             return Error;
         }

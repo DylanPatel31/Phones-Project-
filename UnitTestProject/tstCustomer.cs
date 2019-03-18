@@ -15,7 +15,7 @@ namespace UnitTestProject
         string HouseNo = "37 Drapper street";
         string Town = "Leicester";
         string PostCode = "LE2 1HL";
-        string ContactNo = "01259854590";
+        string ContactNo = "1259854590";
         string Email = "Mudrik2018@gmail.com";
         string DateOfBirth = DateTime.Now.Date.ToString();
         string DateAdded = DateTime.Now.Date.ToString();
@@ -357,7 +357,7 @@ namespace UnitTestProject
             //invoke method 
             Found = ACustomer.Find(CustomerNo);
             //check the mobile number property
-            if (ACustomer.ContactNo != 01259854590)
+            if (ACustomer.ContactNo != 1259854590)
             {
                 OK = false;
             }
@@ -441,6 +441,7 @@ namespace UnitTestProject
             clsCustomer ACustomer = new clsCustomer();
             //sting variable to store an error message
             string Error = "";
+            string TestData = "Mudrik";
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -544,7 +545,7 @@ namespace UnitTestProject
             //sting variable to store an error message
             string Error = "";
             //create some test to data to pass to the method
-            string Title = "Misss"; //this should trigger an error
+            string Title = "Misssssssss"; //this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -578,7 +579,7 @@ namespace UnitTestProject
             string Error = "";
             //create some test to data to pass to the method
             string Title = "";
-            Title = Title.PadRight(100, 'm');//this should trigger an error
+            Title = Title.PadRight(15, 'm');//this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -1097,7 +1098,7 @@ namespace UnitTestProject
             string Error = "";
             //create some test data to pass to the method
             string HouseNo = "";
-            HouseNo = HouseNo.PadRight(31, 'd'); //this should trigger an error
+            HouseNo = HouseNo.PadRight(51, 'd'); //this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -1237,7 +1238,7 @@ namespace UnitTestProject
             string Error = "";
             //create some test data to pass to the method
             string Town = "";
-            Town = Town.PadRight(21, 'l'); //this should trigger an error
+            Town = Town.PadRight(51, 'l'); //this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -1377,7 +1378,7 @@ namespace UnitTestProject
             string Error = "";
             //create some test data to pass to the method
             string PostCode = "";
-            PostCode = PostCode.PadRight(11, 'L'); //this should trigger an error
+            PostCode = PostCode.PadRight(51, 'L'); //this should trigger an error
             //invoke the method
             Error = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
             //test to see that the result is correct
@@ -1717,7 +1718,143 @@ namespace UnitTestProject
 
         }
 
-        
+
+
+
+
+        [TestMethod]
+        public void DateOfBirthMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //create a variable to store the test date data
+            DateTime SomeDate;
+            //set the date totaldays date
+            SomeDate = DateTime.Now.Date;
+            //change date to -17 years & -364 days
+            SomeDate = SomeDate.AddYears(-17);
+            //convert the date variable to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(OK, "");
+
+        }
+
+
+
+
+        [TestMethod]
+        public void DateOfBirthMin()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //set the date totaldays date
+            DateTime SomeDate;
+            //set test date as todays daye
+            SomeDate = DateTime.Now.Date;
+            //Convert data  to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(OK, "");
+
+        }
+
+        [TestMethod]
+        public void DateOfBirthPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //set the date totaldays date
+            DateTime SomeDate;
+            //set test date as todays daye
+            SomeDate = DateTime.Now.Date;
+            //change to date the whatever date is 100 years in the future
+            SomeDate = SomeDate.AddDays(+1);
+            //Convert data  to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(OK, "");
+
+        }
+
+        [TestMethod]
+        public void DateOfBirthMinusOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //set the date totaldays date
+            DateTime SomeDate;
+            SomeDate = DateTime.Now.Date;
+            //change to date the whatever date is 100 years in the future
+            SomeDate = SomeDate.AddDays(-1);
+            //Convert data  to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(OK, "");
+
+        }
+
+        [TestMethod]
+        public void DateOfBirthMax()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //set the date totaldays date
+            DateTime SomeDate;
+            SomeDate = DateTime.Now.Date;
+            //set test date as todays daye
+            SomeDate = SomeDate.AddDays(-1);
+            //Convert data  to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(OK, "");
+
+        }
+
+ 
+
+        [TestMethod]
+        public void DateOfBirthExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store the results of the validation
+            string OK = "";
+            //set the date totaldays date
+            DateTime SomeDate;
+            //set test date as todays daye
+            SomeDate = DateTime.Now.Date;
+            //change to date the whatever date is 100 years in the future
+            SomeDate = SomeDate.AddYears(+10);
+            //Convert data  to a string variable
+            string DateOfBirth = SomeDate.ToString();
+            //invoke the method
+            OK = ACustomer.Valid(Title, FirstName, LastName, HouseNo, Town, PostCode, ContactNo, Email, DateOfBirth, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(OK, "");
+
+        }
+
 
     }
 
