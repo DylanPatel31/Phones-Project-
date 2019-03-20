@@ -250,7 +250,7 @@ namespace UnitTestProject
             //string variable to store error message 
             string Error = "";
             //create some test data to pass to the method 
-            Int32 PhoneID = -1;
+            Int32 PhoneID = 0;
             //invoke the method 
             Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 
@@ -558,7 +558,7 @@ namespace UnitTestProject
             string Error = "";
             //create some test data to pass to the method 
             string PhoneModel = "";
-            PhoneModel = PhoneModel.PadRight(1000, 's');
+            PhoneModel = PhoneModel.PadRight(100, 's');
             //invoke the method 
             Error = AnStock.Valid(PhoneID, PhoneMake, PhoneModel, PhoneDescription);
             //test to see that the result is correct 

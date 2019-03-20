@@ -89,29 +89,29 @@ namespace ClassLibrary
             return true;
         }
 
-        public string Valid(int phoneID, string phoneMake, string phoneModel, string phoneDescription)
+        public string Valid(int PhoneID, string PhoneMake, string PhoneModel, string PhoneDescription)
         {
             //create string variable to store the error 
             string Error = "";
 
-            if(phoneID == 0)
+            if(PhoneID == 0)
             {
                 Error = Error + "PhoneId can not be left blank : ";
             }
 
-            if(phoneID >100)
+            if(PhoneID > 100)
             {
                 Error = Error + "PhoneID must be less than 100 : ";
             }
 
 
 
-            if(phoneMake.Length==0)
+            if(PhoneMake.Length == 0)
             {
                 Error = Error + "Phone make cannot be empty :";
             }
 
-            if(phoneMake.Length>100)
+            if(PhoneMake.Length>100)
             {
                 Error = Error + "phone make cannot be bigger than 100: ";
             }
@@ -121,7 +121,7 @@ namespace ClassLibrary
             {
                 Error = Error + "phone model cannot be empty:";
             }
-            if(phoneModel.Length>100)
+            if(PhoneModel.Length>100)
             {
                 Error = Error + "phone model cannot be bigger than 100:";
             }
@@ -129,12 +129,12 @@ namespace ClassLibrary
 
 
 
-            if(phoneDescription.Length==0)
+            if(PhoneDescription.Length == 0)
             {
                 Error = Error + "Phone description cannot be empty:";
             }
             
-            if(phoneDescription.Length>1000)
+            if(PhoneDescription.Length > 1000)
             {
                 Error = Error + "Phone description cannot be bigger than 100:";
             }
