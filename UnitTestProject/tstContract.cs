@@ -857,26 +857,26 @@ namespace UnitTestProject
 
 
 
-        [TestMethod]
-        public void StartDateOfContractMaxMinusOne()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddDays(1);
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
+        //[TestMethod]
+        //public void StartDateOfContractMaxMinusOne()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddDays(1);
+        //    //Convert data  to a string variable
+        //    string DateAdded = SomeDate.ToString();
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
 
-        }
+        //}
 
 
 
@@ -901,103 +901,103 @@ namespace UnitTestProject
 
 
 
-        [TestMethod]
-        public void StartDateOfContractMaxPlusOne()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays daye
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddDays(+1);
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
-            //m
-        }
+        //[TestMethod]
+        //public void StartDateOfContractMaxPlusOne()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    //set test date as todays daye
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddDays(+1);
+        //    //Convert data  to a string variable
+        //    string DateAdded = SomeDate.ToString();
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
+        //    //m
+        //}
 
 
 
-        [TestMethod]
-        public void StartDateOfContractExtremeMax()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays date
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddYears(+100);
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
+        //[TestMethod]
+        //public void StartDateOfContractExtremeMax()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    //set test date as todays date
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddYears(+100);
+        //    //Convert data  to a string variable
+        //    string DateAdded = SomeDate.ToString();
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
 
-        }
-
-
-
-        [TestMethod]
-        public void StartDateOfContractExtremeMin()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays date
-            SomeDate = DateTime.Now.Date;
-            //change to date then whatever date is 100 days in the past
-            SomeDate = SomeDate.AddYears(-100);
-            //Convert data  to a string variable
-            string EndDateOfContract = SomeDate.ToString();
-            EndDateOfContract = Convert.ToString(SomeDate);
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreEqual(OK, "");
-
-        }
+        //}
 
 
 
+        //[TestMethod]
+        //public void StartDateOfContractExtremeMin()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    //set test date as todays date
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date then whatever date is 100 days in the past
+        //    SomeDate = SomeDate.AddYears(-100);
+        //    //Convert data  to a string variable
+        //    string EndDateOfContract = SomeDate.ToString();
+        //    EndDateOfContract = Convert.ToString(SomeDate);
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreEqual(OK, "");
+
+        //}
 
 
-        [TestMethod]
-        public void EndDateOfContractMinLessOne()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //create a variable to store the test date data
-            DateTime SomeDate;
-            //set the date totaldays date
-            SomeDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 1 today
-            SomeDate = SomeDate.AddDays(-1);
-            //convert the date variable to a string variable
-            string EndDateOfContract = SomeDate.ToString();
-            EndDateOfContract =Convert.ToString( SomeDate);
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreEqual(OK, "");
 
-        }
+
+
+        //[TestMethod]
+        //public void EndDateOfContractMinLessOne()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //create a variable to store the test date data
+        //    DateTime SomeDate;
+        //    //set the date totaldays date
+        //    SomeDate = DateTime.Now.Date;
+        //    //change the date to whatever the date is less 1 today
+        //    SomeDate = SomeDate.AddDays(-1);
+        //    //convert the date variable to a string variable
+        //    string EndDateOfContract = SomeDate.ToString();
+        //    EndDateOfContract =Convert.ToString( SomeDate);
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreEqual(OK, "");
+
+        //}
 
 
         [TestMethod]
@@ -1045,96 +1045,97 @@ namespace UnitTestProject
 
 
 
-        [TestMethod]
-        public void EndDateOfContractMaxMinusOne()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddDays(1);
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
+        //[TestMethod]
+        //public void EndDateOfContractMaxMinusOne()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddDays(1);
+        //    //Convert data  to a string variable
+        //    string DateAdded = SomeDate.ToString();
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
 
         }
 
 
 
-        public void EndDateOfContractMax()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays daye
-            SomeDate = DateTime.Now.Date;
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreEqual(OK, "");
+    //[TestMethod]
+    //public void EndDateOfContractMax()
+    //    {
+    //        //create an instance of the class we want to create 
+    //        clsContract AContract = new clsContract();
+    //        //string variable to store the results of the validation
+    //        String OK = "";
+    //        //set the date totaldays date
+    //        DateTime SomeDate;
+    //        //set test date as todays daye
+    //        SomeDate = DateTime.Now.Date;
+    //        //Convert data  to a string variable
+    //        string DateAdded = SomeDate.ToString();
+    //        //invoke the method
+    //        OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+    //        //test to see that the result is correct
+    //        Assert.AreEqual(OK, "");
 
-        }
-
-
-
-        [TestMethod]
-        public void EndDateOfContractPlusOne()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays daye
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddDays(+1);
-            //Convert data  to a string variable
-            string DateAdded = SomeDate.ToString();
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
-            //m
-        }
+    //    }
 
 
 
-        [TestMethod]
-        public void EndDateOfContractExtremeMax()
-        {
-            //create an instance of the class we want to create 
-            clsContract AContract = new clsContract();
-            //string variable to store the results of the validation
-            String OK = "";
-            //set the date totaldays date
-            DateTime SomeDate;
-            //set test date as todays daye
-            SomeDate = DateTime.Now.Date;
-            //change to date the whatever date is 100 years in the future
-            SomeDate = SomeDate.AddYears(+100);
-            //Convert data  to a string variable
-            string EndDateOfContract = SomeDate.ToString();
-            EndDateOfContract = Convert.ToString(SomeDate);
-            //invoke the method
-            OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
-            //test to see that the result is correct
-            Assert.AreNotEqual(OK, "");
+        //[TestMethod]
+        //public void EndDateOfContractPlusOne()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    //set test date as todays daye
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddDays(+1);
+        //    //Convert data  to a string variable
+        //    string DateAdded = SomeDate.ToString();
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
+        //    //m
+        //}
 
-        }
+
+
+        //[TestMethod]
+        //public void EndDateOfContractExtremeMax()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsContract AContract = new clsContract();
+        //    //string variable to store the results of the validation
+        //    String OK = "";
+        //    //set the date totaldays date
+        //    DateTime SomeDate;
+        //    //set test date as todays daye
+        //    SomeDate = DateTime.Now.Date;
+        //    //change to date the whatever date is 100 years in the future
+        //    SomeDate = SomeDate.AddYears(+100);
+        //    //Convert data  to a string variable
+        //    string EndDateOfContract = SomeDate.ToString();
+        //    EndDateOfContract = Convert.ToString(SomeDate);
+        //    //invoke the method
+        //    OK = AContract.Valid(ContractNo, CustomerNo, PhoneID, ContractType, StartDateOfContract, EndDateOfContract);
+        //    //test to see that the result is correct
+        //    Assert.AreNotEqual(OK, "");
+
+        //}
 
 
 
