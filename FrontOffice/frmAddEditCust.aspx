@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="background-color: #FFFF99">
     <form id="form1" runat="server">
         <div>
         </div>
@@ -30,9 +30,9 @@
         <asp:TextBox ID="txtDateOfBirth" runat="server" style="z-index: 1; left: 132px; top: 393px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 132px; top: 432px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 28px; top: 431px; position: absolute">Date Added</asp:Label>
-        <asp:Button ID="btnEnter" runat="server" style="z-index: 1; left: 132px; top: 505px; position: absolute; width: 80px" Text="Enter" OnClick="btnEnter_Click" />
+        <asp:Button ID="btnEnter" runat="server" style="z-index: 1; left: 61px; top: 534px; position: absolute; width: 104px" Text="Enter" OnClick="btnEnter_Click" BackColor="#9966FF" Font-Bold="True" Font-Size="Medium" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 463px; top: 510px; position: absolute" Text="lblError"></asp:Label>
-        <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 294px; top: 507px; position: absolute; height: 26px" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 243px; top: 537px; position: absolute; height: 30px; width: 96px;" Text="Cancel" BackColor="#FFCC00" Font-Bold="True" Font-Size="Medium" />
         <asp:TextBox ID="txtCustomerNo" runat="server" style="z-index: 1; left: 133px; top: 52px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblCustomer" runat="server" style="z-index: 1; left: 36px; top: 53px; position: absolute" Text="CustomerNo"></asp:Label>
     </form>
